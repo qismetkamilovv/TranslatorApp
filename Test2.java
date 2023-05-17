@@ -1,8 +1,20 @@
+import minimaljson.Json;
 import minimaljson.JsonArray;
 import minimaljson.JsonObject;
+import minimaljson.JsonValue;
 
 public class Test2 {
     public static void main(String[] args) {
+        String json = "{\"menu\": { \"id\": \"file\", \"value\": \"File\", \"popup\": { \"menuitem\": [ {\"value\":\"New\", \"onclick\": \"CreateNewDoc()\"}, {\"value\": \"Open\", \"onclick\": \"OpenDoc()\"}, {\"value\": \"Close\", \"onclick\": \"CloseDoc()\"} ] } }}" ;
+        JsonValue a = fromJson(json);
+        String name = a.asObject().getJsonValue("menu").getString("value", null);
+        System.out.println(name);
+    }
+
+        public void abc() {
+            
+        
+
         JsonObject aa = new JsonObject();
         JsonObject menu = new JsonObject() ;
         menu.add("id", "file")
@@ -37,4 +49,9 @@ public class Test2 {
 
 
     }
+    public static JsonValue fromJson(String json) {
+        return Json.parse(json); 
+         
+         
+     }
 }

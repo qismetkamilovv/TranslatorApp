@@ -931,4 +931,12 @@ public class JsonObject extends JsonValue implements Iterable<Member> {
 
   }
 
+public JsonArray getJsonObject() {
+    return null;
+}
+
+public JsonObject getJsonValue(String string) {
+    return null;
+}
+
 }
