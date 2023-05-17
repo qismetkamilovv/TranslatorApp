@@ -7,7 +7,7 @@ public class Test2 {
     public static void main(String[] args) {
         String json = "{\"menu\": { \"id\": \"file\", \"value\": \"File\", \"popup\": { \"menuitem\": [ {\"value\":\"New\", \"onclick\": \"CreateNewDoc()\"}, {\"value\": \"Open\", \"onclick\": \"OpenDoc()\"}, {\"value\": \"Close\", \"onclick\": \"CloseDoc()\"} ] } }}" ;
         JsonValue a = fromJson(json);
-        String name = a.asObject().getJsonValue("menu").getString("value", null);
+        String name = a.asObject().get("menu").asObject().getString("value", null);//.getJsonValue("menu");//.getString("value", null);
         System.out.println(name);
     }
 
@@ -51,7 +51,5 @@ public class Test2 {
     }
     public static JsonValue fromJson(String json) {
         return Json.parse(json); 
-         
-         
      }
 }
