@@ -15,3 +15,9 @@ TranslatorApp.java (main)
         - listAllTranslatedWords() (returns list of words from DB)
         - randomWord()
     TranslatorServiceImpl (implement TranslatorService interface)
+
+
+======== Table stucture ===========
+ table name: translations
+ there will be 3 columns all columns data types will be varchar
+| text | source | target |
