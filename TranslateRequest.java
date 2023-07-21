@@ -4,4 +4,6 @@ public class TranslateRequest {
     public String target ;
 
     public String source ;
+
+    // add getter/setters and also toString method
 }
