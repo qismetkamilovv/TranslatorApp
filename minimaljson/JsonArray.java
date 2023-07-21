@@ -508,4 +508,8 @@ public class JsonArray extends JsonValue implements Iterable<JsonValue> {
     return values.equals(other.values);
   }
 
+public String getString(String string, Object object) {
+    return null;
+}
+
 }

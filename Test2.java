@@ -1,3 +1,4 @@
+import javafx.scene.control.MenuItem;
 import minimaljson.Json;
 import minimaljson.JsonArray;
 import minimaljson.JsonObject;
@@ -7,8 +8,12 @@ public class Test2 {
     public static void main(String[] args) {
         String json = "{\"menu\": { \"id\": \"file\", \"value\": \"File\", \"popup\": { \"menuitem\": [ {\"value\":\"New\", \"onclick\": \"CreateNewDoc()\"}, {\"value\": \"Open\", \"onclick\": \"OpenDoc()\"}, {\"value\": \"Close\", \"onclick\": \"CloseDoc()\"} ] } }}" ;
         JsonValue a = fromJson(json);
-        String name = a.asObject().get("menu").asObject().getString("value", null);//.getJsonValue("menu");//.getString("value", null);
-        System.out.println(name);
+        JsonArray name = a.asObject().get("menu").asObject().get("popup" ).asObject().get("menuitem").asArray();//.getJsonValue("menu");//.getString("value", null);
+        //System.out.println(name);
+        for(JsonValue jsonValue : name ) {
+
+        System.out.println(jsonValue.asObject().get("onclick"));
+    }
     }
 
         public void abc() {
