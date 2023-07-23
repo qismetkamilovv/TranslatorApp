@@ -1,4 +1,3 @@
-import javafx.scene.control.MenuItem;
 import minimaljson.Json;
 import minimaljson.JsonArray;
 import minimaljson.JsonObject;
