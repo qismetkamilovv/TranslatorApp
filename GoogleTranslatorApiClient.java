@@ -11,7 +11,7 @@ import minimaljson.JsonObject;
 import minimaljson.JsonValue;
 
 public class GoogleTranslatorApiClient {
-
+    
     //metod yarat adi translate(String sourceLang,String targetLang,String text)
     public void translate(String sourceLang, String targetLang, String text) {
         try {

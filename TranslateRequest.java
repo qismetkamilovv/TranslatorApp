@@ -1,7 +1,39 @@
 public class TranslateRequest {
-    public String q ;
+    private String q ;
 
-    public String target ;
+    private String target ;
 
-    public String source ;
+    private String source ;
+
+    public TranslateRequest (String q , String target, String source){
+        this.target = target ;
+        this.source = source ;
+        this.q = q ;
+    }
+
+    public String getQ() {
+        return q;
+    }
+
+    public void setQ(String q) {
+        this.q = q;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+    
+
 }
