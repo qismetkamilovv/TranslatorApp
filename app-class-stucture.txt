@@ -19,5 +19,6 @@ TranslatorApp.java (main)
 
 ======== Table stucture ===========
  table name: translations
- there will be 3 columns all columns data types will be varchar
-| text | source | target |
+ there will be 4 columns and  3 columns data types will be varchar
+ type of create_at is date
+| text | source | target | created_at |
