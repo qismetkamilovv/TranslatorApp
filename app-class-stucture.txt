@@ -1,0 +1,23 @@
+TranslatorApp.java (main)
+    - text, source and target language will be provided from arguments in main maethod
+    DatasourceConfig
+        - connect()
+        - close()
+    GoogleTranslatorApiClient (Google API client)
+        - URL (string const field, value will be API url)
+        - translate(TranslateRequest body)
+    TranslateRequest (entity/ request body for API)
+        - q (field, text that will be translated)
+        - source (source/from language)
+        - target (target/to language)
+    TranslatorService (interface)
+        - translate(String text, String fromLang, String toLang)
+        - listAllTranslatedWords() (returns list of words from DB)
+        - randomWord()
+    TranslatorServiceImpl (implement TranslatorService interface)
+
+
+======== Table stucture ===========
+ table name: translations
+ there will be 3 columns all columns data types will be varchar
+| text | source | target |
