@@ -9,9 +9,10 @@ import minimaljson.JsonValue;
 public class GoogleTranslatorApiClient {
     
     //metod yarat adi translate(String sourceLang,String targetLang,String text)
+    // TODO add return type
     public void translate(String sourceLang, String targetLang, String text) {
         try {
-            
+
             JsonValue requestJson = JsonHelper.toJson(sourceLang, targetLang, text);
 
             HttpRequest request = HttpRequest.newBuilder().uri(new URI("https://translation.googleapis.com/language/translate/v2"))
@@ -22,11 +23,12 @@ public class GoogleTranslatorApiClient {
 
            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
+            // TODO return response.body
            System.out.println(response.body());
 
         } catch (IOException |InterruptedException | URISyntaxException e) {
             e.printStackTrace();
         }
-        
+
     }
 }

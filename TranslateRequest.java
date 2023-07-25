@@ -1,8 +1,7 @@
 public class TranslateRequest {
+    // TODO rename to text
     private String q ;
-
     private String target ;
-
     private String source ;
 
     public TranslateRequest (String q , String target, String source){

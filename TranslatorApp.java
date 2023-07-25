@@ -1,15 +1,21 @@
+import javax.xml.crypto.dsig.TransformService;
+
 public class TranslatorApp {
+
+    // research how to read values from args in java
 
     public static void main(String[] args) {
         //todo read word from args
         //than translatorservice call service.translate
-        //than output result 
-        TranslatorServiceimpl translatorService = new TranslatorServiceimpl() ;
-        translatorService.translate();
-        translatorService.test();
-            
-        
-
-        
+        //than output result
+        TranslatorService s = new TranslatorServiceImpl();
+        String translatedWord = s.translate(text);
+        System.out.println(translatedWord);
     }
 }
+
+/* For read
+ * inheritance
+ * class constructor
+ * field default values
+ */
