@@ -16,6 +16,9 @@ TranslatorApp.java (main)
         - randomWord()
     TranslatorServiceImpl (implement TranslatorService interface)
 
+    TranslateRepository
+        -- save(TranslateRequest request)
+        -- findByWordEn(String word);
 
 ======== Table stucture ===========
  table name: translations
