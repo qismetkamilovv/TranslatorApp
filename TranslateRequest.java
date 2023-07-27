@@ -1,21 +1,21 @@
 public class TranslateRequest {
-    // TODO rename to text
-    private String q ;
+   
+    private String text ;
     private String target ;
     private String source ;
 
-    public TranslateRequest (String q , String target, String source){
+    public TranslateRequest (String text , String target, String source){
         this.target = target ;
         this.source = source ;
-        this.q = q ;
+        this.text = text ;
     }
 
-    public String getQ() {
-        return q;
+    public String gettext() {
+        return text;
     }
 
-    public void setQ(String q) {
-        this.q = q;
+    public void settext(String text) {
+        this.text = text;
     }
 
     public String getTarget() {

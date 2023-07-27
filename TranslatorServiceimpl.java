@@ -1,19 +1,37 @@
-public class TranslatorServiceImpl implements TranslatorService {
+public class TranslatorServiceimpl implements TranslatorService {
 
-    /**
-     * TODO create 2 constant String fields:
-     * --sourceLang = "en"
-     * --targetLang = "az"
-     * instance fields
-     * - GoogleApiClient
-     * - TranslateRepo
-     * initialize instance fields in constructor
-     **/
+    public final static String sourceLang = "en";
+    public final static String targetLang = "az";
 
-    // TODO return type String
-    @Override
-    public void translate(String word) {
+    private GoogleTranslatorApiClient googleTranslatorApiClient;
+    private TranslateRepostiry translateRepostiry;
+
+    public TranslatorServiceimpl() {
+        this.googleTranslatorApiClient = new GoogleTranslatorApiClient();
+        this.translateRepostiry = new TranslateRepostiry();
     }
 
-    // TODO implement additional interface methods
+    @Override
+    public String translate(String word) {
+        //todo first call googleapi to translate "word" than save the translated text to database 
+        
+        return null;
+    }
+
+    @Override
+    public String translate(String word, String targetLang) {
+        return null;
+    }
+
+    @Override
+    public String translate(String word, String sourceLang, String targetLang) {
+        return null;
+    }
+
 }
+
+
+
+
+
+

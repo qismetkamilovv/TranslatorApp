@@ -8,8 +8,8 @@ import minimaljson.JsonValue;
 
 public class GoogleTranslatorApiClient {
     
-    //metod yarat adi translate(String sourceLang,String targetLang,String text)
-    // TODO add return type
+    
+    // TODO add return type String
     public void translate(String sourceLang, String targetLang, String text) {
         try {
 
@@ -23,7 +23,8 @@ public class GoogleTranslatorApiClient {
 
            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-            // TODO return response.body
+            // TODO return translated text 
+            // first parse respons.body to json and get "translatedText" than return this value 
            System.out.println(response.body());
 
         } catch (IOException |InterruptedException | URISyntaxException e) {
