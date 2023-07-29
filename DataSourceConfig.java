@@ -10,9 +10,13 @@ public class DataSourceConfig {
 
     public Connection connect() {
         if (connection == null) {
+
             try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+ 
+
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }

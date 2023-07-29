@@ -1,20 +1,15 @@
-import javax.xml.crypto.dsig.TransformService;
 
 public class TranslatorApp {
 
-    // research how to read values from args in java
 
-    public static void main(String[] args) {  
-
-        // todo read word from args
-        // than translatorservice call service.translate
-        // than output result
+    public static void main(String[] args) {
+        String text = args[0];
+       
         TranslatorService s = new TranslatorServiceimpl();
         String translatedWord = s.translate(text);
         System.out.println(translatedWord);
     }
 }
-
 
 /*
  * For read

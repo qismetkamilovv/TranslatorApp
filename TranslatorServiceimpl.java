@@ -1,7 +1,7 @@
 public class TranslatorServiceimpl implements TranslatorService {
 
-    public final static String sourceLang = "en";
-    public final static String targetLang = "az";
+    public final static String SOURCE_LANG = "en";
+    public final static String TARGET_LANG = "az";
 
     private GoogleTranslatorApiClient googleTranslatorApiClient;
     private TranslateRepostiry translateRepostiry;
@@ -13,9 +13,10 @@ public class TranslatorServiceimpl implements TranslatorService {
 
     @Override
     public String translate(String word) {
-        //todo first call googleapi to translate "word" than save the translated text to database 
-        
-        return null;
+        String translatedText = googleTranslatorApiClient.translate(SOURCE_LANG, TARGET_LANG, word);
+        translateRepostiry.save(word, translatedText, SOURCE_LANG, TARGET_LANG);
+
+        return translatedText;
     }
 
     @Override
@@ -29,9 +30,3 @@ public class TranslatorServiceimpl implements TranslatorService {
     }
 
 }
-
-
-
-
-
-
