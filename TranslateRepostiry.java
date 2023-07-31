@@ -1,6 +1,9 @@
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class TranslateRepostiry {
 
@@ -25,7 +28,7 @@ public class TranslateRepostiry {
 
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Veri başarıyla eklendi.");
+                System.out.println("Data saved.");
             }
 
             connect.close();
@@ -34,7 +37,38 @@ public class TranslateRepostiry {
         }
     }
 
-    public void findByWord(String sourceText) {
+    public String findByWord(String sourceText) {
+        // todo implement this method(SELECT_QUERY)
+        String trasnlatedText = null ;
+        try (PreparedStatement ps = connect.prepareStatement(SELECT_QUERY)) {
 
+            ps.setString(1, sourceText);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String sText = rs.getString("source_text");
+                String tText = rs.getString("translated_text");
+                String tLang = rs.getString("target_language");
+                String sLang = rs.getString("source_language");
+                long id = rs.getInt("id");
+                String date = rs.getString("date_added");
+                
+                trasnlatedText = tText ;
+                System.out.println("id: " + id);
+                System.out.println("sourcelang: " + sLang);
+                System.out.println("targetlang: " + tLang);
+                System.out.println("sourcetext: " + sText);
+                System.out.println("targettext: " + tText);
+                System.out.println("date: " + date);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+        return trasnlatedText ;
     }
+
+    // todo read how to handle resultSet
+    // todo how to select from database
+
 }

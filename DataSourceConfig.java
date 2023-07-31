@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DataSourceConfig {
-    private final static String URL = "jdbc:mysql://localhost:3306/TranslatorApp";
+    private final static String URL = "jdbc:mysql://localhost:3306/translator_app";
     private final static String USER = "root";
     private final static String PASSWORD = "qismet20";
     private Connection connection;

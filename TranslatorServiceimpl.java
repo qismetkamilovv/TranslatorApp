@@ -12,9 +12,12 @@ public class TranslatorServiceimpl implements TranslatorService {
     }
 
     @Override
-    public String translate(String word) {
-        String translatedText = googleTranslatorApiClient.translate(SOURCE_LANG, TARGET_LANG, word);
-        translateRepostiry.save(word, translatedText, SOURCE_LANG, TARGET_LANG);
+    public String translate(String text) {
+        String translatedText = translateRepostiry.findByWord(text);
+        if (translatedText == null) {
+            translatedText = googleTranslatorApiClient.translate(SOURCE_LANG, TARGET_LANG, text);
+            translateRepostiry.save(text, translatedText, SOURCE_LANG, TARGET_LANG);
+        }
 
         return translatedText;
     }

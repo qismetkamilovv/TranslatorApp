@@ -14,24 +14,21 @@ public class GoogleTranslatorApiClient {
         String translatedText = null;
         try {
 
-            JsonValue requestJson = JsonHelper.toJson(sourceLang, targetLang, text);
+            String requestJson = JsonHelper.toJson(sourceLang, targetLang, text);
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI("https://translation.googleapis.com/language/translate/v2"))
                     .header("Authorization",
-                            "Bearer ya29.a0AWY7CkngaaiAE2mInSaFhGkBkxmTpTbj0tYLLSQrcZ3ohi3wUqO-qt8twKT6G8Mj3t0xH9eyUiH8_uvMgCPPHZl_I3G6wXIx1UO6haLZ-c_1KRgDSWvGE4-eIj_Gqg8tJM1b9egf9dfAiB4PNmePE_1VrMN8j0ZVCHpLlwaCgYKAbQSARISFQG1tDrpB0WvZQ9kRE-FVOgK1cXETQ0173")
+                            "Bearer ya29.a0AbVbY6N1evKEo72_cDq8Q5Sm6_zjdKOttbCDIn7qdb1YkoCkTxNWpkG0cSxIdVvn48lbV6sAgpH1cIMckHWqKvNo3uqxsnUE6lw66X9mqhXyhwLAIAWll_h4GJakV_hcJGae9XuEQXdo4mqlrobfkiRTcsMJUzNpvsASgPMaCgYKAbUSARISFQFWKvPlgoT_u-NQWZV7ixzkX-SYWg0174")
                     .header("x-Goog-User-Project", "translator-387919")
                     .header("Content-type", "application/json;charset=utf-8")
-                    .POST(HttpRequest.BodyPublishers.ofString(requestJson.toString())).build();
+                    .POST(HttpRequest.BodyPublishers.ofString(requestJson)).build();
 
             HttpResponse<String> response = HttpClient.newHttpClient().send(request,
                     HttpResponse.BodyHandlers.ofString());
 
             System.out.println(response.body());
-            JsonValue json = Json.parse(response.body());
-            translatedText = json.asObject().get("data").asObject().get("translations")
-                    .asArray().get(0)
-                    .asObject().get("translatedText").asString();
+            translatedText = JsonHelper.getTranslatedText(response.body());
         } catch (IOException | InterruptedException | URISyntaxException e) {
             e.printStackTrace();
 
