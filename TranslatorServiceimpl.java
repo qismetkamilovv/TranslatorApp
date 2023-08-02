@@ -13,23 +13,21 @@ public class TranslatorServiceimpl implements TranslatorService {
 
     @Override
     public String translate(String text) {
+        return this.translate(text, SOURCE_LANG, TARGET_LANG);
+    }
+
+    @Override
+    public String translate(String text, String targetLang) {
+        return this.translate(text, SOURCE_LANG, targetLang);
+    }
+
+    @Override
+    public String translate(String text, String sourceLang, String targetLang) {
         String translatedText = translateRepostiry.findByWord(text);
         if (translatedText == null) {
-            translatedText = googleTranslatorApiClient.translate(SOURCE_LANG, TARGET_LANG, text);
-            translateRepostiry.save(text, translatedText, SOURCE_LANG, TARGET_LANG);
+            translatedText = googleTranslatorApiClient.translate(sourceLang, targetLang, text);
+            translateRepostiry.save(text, translatedText, sourceLang, targetLang);
         }
-
         return translatedText;
     }
-
-    @Override
-    public String translate(String word, String targetLang) {
-        return null;
-    }
-
-    @Override
-    public String translate(String word, String sourceLang, String targetLang) {
-        return null;
-    }
-
 }
