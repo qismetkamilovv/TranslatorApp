@@ -10,10 +10,3 @@ public class TranslatorApp {
         System.out.println(translatedWord);
     }
 }
-
-/*
- * For read
- * inheritance
- * class constructor
- * field default values
- */
