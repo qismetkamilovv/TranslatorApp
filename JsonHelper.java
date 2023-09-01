@@ -14,6 +14,7 @@ public class JsonHelper {
     }
 
     public static String getTranslatedText(String responseBody) {
+        System.out.println(responseBody);
         JsonValue json = Json.parse(responseBody);
         String translatedText = json.asObject().get("data").asObject().get("translations")
                 .asArray().get(0)

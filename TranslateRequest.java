@@ -1,3 +1,5 @@
+import minimaljson.JsonObject;
+
 public class TranslateRequest {
    
     private String text ;
@@ -34,5 +36,13 @@ public class TranslateRequest {
         this.source = source;
     }
     
-
+    public String toJson (){
+        JsonObject json = new JsonObject() ;
+        json.add("q", text).
+            add("source", source).
+            add("target", target);
+        return json.toString() ;
+    }
+    
+    
 }

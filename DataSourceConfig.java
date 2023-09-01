@@ -9,25 +9,24 @@ public class DataSourceConfig {
     private Connection connection;
 
     public Connection connect() {
-        if (connection == null) {
+        try {
+            if (connection == null || connection.isClosed()) {
 
-            try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
- 
 
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
             }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return connection;
     }
 
     public void close() {
-        if(connection != null){
+        if (connection != null) {
             try {
                 connection.close();
-                
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
