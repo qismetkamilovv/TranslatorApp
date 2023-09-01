@@ -5,22 +5,18 @@ public class TranslatorApp {
     private static final Logger LOGGER = Logger.getLogger("TranslatorApp");
     static FileReader FileReader;
 
+    TranslatorServiceimpl trs = new TranslatorServiceimpl();
+
     public static void main(String[] args) {
-        TranslatorServiceimpl trs = new TranslatorServiceimpl();
+        TranslatorApp app = new TranslatorApp();
         String text = null;
         String translatedText = null;
         if (args.length == 0) {
-            ArrayList<String> words = FileReader.read();
-            // for (int i = 0; i < words.size(); i++) {
-            //     translatedText = trs.translate(words.get(i));
-            // }
-            for(String word : words  ){
-                translatedText =trs.translate(word);
-            }
+            app.readFromFileAndTranslate();
         }
+
         if (args.length == 1) {
-            text = args[0];
-            translatedText = trs.translate(text);
+           translatedText =  app.sik(args[0]);
         }
 
         if (args.length == 2) {
@@ -61,5 +57,19 @@ public class TranslatorApp {
         }
         System.out.println(translatedText);
 
+    }
+
+    public void readFromFileAndTranslate() {
+        ArrayList<String> words = FileReader.read();
+        // for (int i = 0; i < words.size(); i++) {
+        // translatedText = trs.translate(words.get(i));
+        // }
+        for (String word : words) {
+            trs.translate(word);
+        }
+    }
+
+    public String sik(String text) {
+        return trs.translate(text);
     }
 }
