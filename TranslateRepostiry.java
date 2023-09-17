@@ -10,14 +10,13 @@ public class TranslateRepostiry {
 
     private Connection connect;
 
-    public TranslateRepostiry() {
+    public TranslateRepostiry(DataSourceConfig config) {
         this.connect = new DataSourceConfig().connect();
     }
 
     public void save(String text, String translatedText, String sourceLang, String targetLang) {
 
         try (PreparedStatement preparedStatement = connect.prepareStatement(INSERT_QUERY)) {
-
             preparedStatement.setString(1, sourceLang);
             preparedStatement.setString(2, targetLang);
             preparedStatement.setString(3, text);
@@ -28,7 +27,6 @@ public class TranslateRepostiry {
                 System.out.println("Data saved.");
             }
 
-            connect.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -49,7 +47,4 @@ public class TranslateRepostiry {
         }
         return trasnlatedText;
     }
-
-    // todo read how to handle resultSet
-
 }

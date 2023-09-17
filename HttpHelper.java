@@ -12,8 +12,8 @@ public class HttpHelper {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI("https://translation.googleapis.com/language/translate/v2"))
                     .header("Authorization",
-                            "Bearer ya29.a0AfB_byBUptHRAOrHerB-HU5g9zZKLHsWFw9zP5juZTL6217UPm2-Igwh6eB4yNLWCamiELfYaTVfdo-f6nQ5jWCPrHPGilb4c9dDvfqvEtmiR9POpqOpwGcOXywUydsgVfVZZLbMjk1CfPDdpoZW0dmRjuKkrKhrE9eHHp_qlzXTaPYnaCgYKATQSARISFQHsvYlsepgnhRrpc6UnyhJlHCOvBg0183")
-                    .header("x-Goog-User-Project", "translator-387919")
+                            "Bearer ya29.a0AfB_byDh7x9kxAkUDxtfuaigTqAE2bzFMxRWUfy8NlvnPrVJmpqEUYKMZ8uiiF6x6oJyZ3oQX7KGqbX5dM1ZgXskN3ErT5QmPpnvigYlqp8_baHktcLzzvgllJkQiSPY6jGiHJSvjdK-9CJddlfcbn1aVuQK4Wx7dIzlVuHgngUaCgYKAWMSARISFQGOcNnCPHTgGtBHd6VDouUElYNrBw0178")
+                    .header("x-Goog-User-Project", "translatorapp-398317")
                     .header("Content-type", "application/json;charset=utf-8")
                     .POST(HttpRequest.BodyPublishers.ofString(requestJson)).build();
 

@@ -12,10 +12,9 @@ public class TranslatorServiceimpl implements TranslatorService {
     private GoogleTranslatorApiClient googleTranslatorApiClient;
     private TranslateRepostiry translateRepostiry;
 
-    public TranslatorServiceimpl() {
-        //todo 
-        this.googleTranslatorApiClient = new GoogleTranslatorApiClient();
-        this.translateRepostiry = new TranslateRepostiry();
+    public TranslatorServiceimpl(TranslateRepostiry repo, GoogleTranslatorApiClient client) { 
+        this.googleTranslatorApiClient = client ;
+        this.translateRepostiry = repo ;
     }
 
     @Override
